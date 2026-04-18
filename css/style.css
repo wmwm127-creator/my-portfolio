@@ -1,0 +1,456 @@
+@charset "utf-8";
+
+/* ==========================================================================
+   1. Base & Reset (基本設定)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f9f7e8;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    transition: opacity 0.3s;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+/* ==========================================================================
+   2. Shared Components (共通パーツ)
+   ========================================================================== */
+section {
+    padding: 100px 0;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 60px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.btn-yellow, .btn-more {
+    display: inline-block;
+    background-color: #fff352;
+    padding: 8px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   3. Header (ヘッダー)
+   ========================================================================== */
+header {
+    width: 100%;
+    padding: 20px 40px;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    letter-spacing: 0.1em;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+.btn-contact {
+    background-color: #fff352;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   4. Hero (メインビジュアル)
+   ========================================================================== */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.catchphrase {
+    font-size: 32px;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+
+.catchphrase::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: #fff352;
+    z-index: -1;
+}
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+}
+
+.arrow {
+    margin-top: 5px;
+    font-size: 16px;
+    display: block;
+}
+
+/* ==========================================================================
+   5. Works Section (実績一覧 - Index)
+   ========================================================================== */
+.works {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.works-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    text-align: left;
+}
+
+.works-item {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 40px;
+}
+
+.works-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #ddd;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.works-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.works-item:hover .works-image {
+    transform: scale(1.05);
+}
+
+.works-category {
+    font-size: 10px;
+    color: #888;
+    margin-bottom: 5px;
+}
+
+.works-item-title {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.works-text {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   6. About Me Section 
+   ========================================================================== */
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.about-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.about-name-ja {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.about-copy {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.about-text {
+    font-size: 14px;
+    line-height: 2;
+    text-align: left;
+    margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   7. About Me 詳細ページスタイル
+   ========================================================================== */
+.about-detail {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 詳細ページ用のアイコンサイズ固定 */
+.about-detail .about-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+.profile-name-en {
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    margin-top: 10px;
+}
+
+.profile-name-ja {
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.profile-details {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0 20px;
+}
+
+.detail-block {
+    margin-bottom: 40px;
+}
+
+.detail-label {
+    display: inline-block;
+    background-color: #fff352;
+    padding: 2px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.detail-block p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #444;
+}
+
+.separator {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 40px auto;
+    width: 100%;
+}
+
+.photo-gallery {
+    margin: 60px 0;
+}
+
+.photo-gallery .gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.photo-gallery .gallery-image {
+    width: calc(25% - 15px); /* PC 4枚並び */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* ==========================================================================
+   8. Works Detail Page (実績詳細)
+   ========================================================================== */
+.works-detail {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 40px;
+}
+
+.works-detail-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px 60px;
+}
+
+.works-header-area, .works-text-area { width: calc(45% - 30px); }
+.works-main-visual-area, .works-sub-visual-area { width: calc(55% - 30px); }
+
+.works-tag { font-size: 12px; color: #888; margin-bottom: 10px; }
+.works-title { font-size: 24px; line-height: 1.4; margin-bottom: 20px; }
+
+.works-description section { margin-bottom: 25px; }
+.works-description h4 { font-size: 15px; color: #000; margin-bottom: 10px; font-weight: bold; }
+.works-description p { font-size: 14px; line-height: 1.8; }
+
+.works-links { margin: 20px 0 30px; }
+.link-item {
+    display: inline-block;
+    margin-right: 20px;
+    color: #333;
+    font-size: 13px;
+    font-weight: bold;
+    border-bottom: 2px solid #fff352;
+    padding-bottom: 2px;
+}
+
+.works-meta {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 13px;
+}
+
+.works-detail-image { width: 100%; height: auto; border-radius: 8px; }
+
+.sub-visuals { display: flex; flex-wrap: wrap; gap: 20px; }
+.works-sub-image { width: calc(50% - 10px); height: auto; border-radius: 8px; }
+
+.back-home { margin: 60px 0 100px; text-align: center; }
+
+/* ==========================================================================
+   9. Contact & Footer
+   ========================================================================== */
+.contact {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.contact-content p {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+footer {
+    padding: 60px 0 20px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
+.footer-logo { font-size: 14px; letter-spacing: 0.1em; margin-bottom: 10px; }
+.copyright { font-size: 10px; color: #999; }
+
+/* ==========================================================================
+   10. Media Queries (スマホ対応)
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+    header { padding: 15px 20px; }
+    section { padding: 60px 0; }
+    
+    .hamburger { display: block; position: relative; width: 30px; height: 24px; z-index: 100; }
+    .hamburger span {
+        display: block; width: 100%; height: 2px; background-color: #333;
+        position: absolute; left: 0; transition: all 0.3s;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 11px; }
+    .hamburger span:nth-child(3) { top: 22px; }
+    .hamburger.open span:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+    .nav-links {
+        display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+        background-color: rgba(249, 247, 232, 0.95); flex-direction: column;
+        justify-content: center; align-items: center; z-index: 90;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links li { margin: 20px 0; margin-left: 0; }
+
+    .catchphrase { font-size: 24px; }
+    .works-item { width: 100%; flex: none; }
+    .about-copy { font-size: 20px; }
+
+    /* ★詳細ページのギャラリーを2列2行にする設定 */
+    .photo-gallery .gallery-image {
+        width: calc(50% - 10px) !important;
+        height: 140px !important;
+    }
+
+    .works-detail { padding: 0 20px; }
+    .works-header-area, .works-main-visual-area, .works-text-area, .works-sub-visual-area { width: 100%; }
+    .works-header-area { order: 1; }
+    .works-main-visual-area { order: 2; }
+    .works-text-area { order: 3; }
+    .works-sub-visual-area { order: 4; }
+    .works-sub-image { width: 100%; }
+    .contact { padding: 60px 20px; }
+}
